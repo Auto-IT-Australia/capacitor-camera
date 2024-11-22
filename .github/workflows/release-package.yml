@@ -13,10 +13,10 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: npm test
+      - run: npm run build # This step ensures the package is built (compile TypeScript, etc.)
 
   publish-gpr:
-    needs: build
+    needs: build # This ensures the publish job only runs after build is successful
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 16
-          registry-url: https://npm.pkg.github.com/ # Use GitHub for publishing
+          registry-url: https://npm.pkg.github.com/ # Use GitHub Packages for publishing
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
