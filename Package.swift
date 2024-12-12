@@ -2,11 +2,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "CapacitorCamera",
+    name: "AutoItAustraliaCapacitorCamera",
     platforms: [.iOS(.v14)],
     products: [
         .library(
-            name: "CapacitorCamera",
+            name: "AutoItAustraliaCapacitorCamera",
             targets: ["CameraPlugin"])
     ],
     dependencies: [

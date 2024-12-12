@@ -171,6 +171,8 @@ public class CameraPlugin: CAPPlugin, CAPBridgedPlugin {
                 self.showCamera()
             case .photos:
                 self.showPhotos()
+            case .video:
+                call.unavailable("Video source not supported")
             }
         }
     }
